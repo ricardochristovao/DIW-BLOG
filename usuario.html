@@ -1,0 +1,265 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+        <title>Usuario - DIW NEWS</title>         
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="blog.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet" type="text/css">
+    </head>     
+    <body onload="init()"> 
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+</div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-dark" onclick="window.location.href = 'index.html';">DIW NEWS</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="text-muted" href="#"> </a>
+                    <img src="http://skeavee.com/imagens/16.png" onclick="window.location.href = 'index.html';" style="width: 40px; height: 40px; margin-right: 35px; border-bottom-color: #69bdbd; border-left-color: #8c1d1d; border-top-color: #371f1f; border-right-color: #d27575;"/>
+                </div>
+            </div>
+        </header>
+        <div style="background: #343a40; color: white; height: 90px; display: flex; align-items: center; justify-content: center;">
+            <h1 style="font-size: 40px; font-family: Playfair Display;">Menu de gestão de Posts</h1>
+        </div>
+        <div style="background: #343a40; color: white; height: 60px; display: flex; align-items: center; justify-content: flex-start; border-top: 1px solid #d4d4d4;">
+            <img src="http://skeavee.com/imagens/17.png" onclick="window.location.href = 'print.html';" style="border-top-color: #ececec; border-bottom-color: #ececec; border-left-color: #ececec; border-right-color: #130a0a; width: 35px; height: 35px; margin-left: 25px;">
+        </div>         
+        <div class="container"> 
+            <div class="row"> 
+                <div id="msg" class="col-sm-10 offset-sm-1 "> 
+                    <!--<div class="alert alert-warning">Contato não encontrado.</div>-->                     
+                </div>                 
+            </div>             
+            <form id="form-contato"> 
+                <div class="form-group row">
+                    <div class="col-sm-4"> 
+                        <label for="inputId">ID</label>                         
+                        <input type="text" class="form-control" id="inputId" placeholder="ID" disabled="" style="border: 1px solid #343a40;"> 
+                    </div>                     
+                    <div class="col-sm-8"> 
+                        <label for="inputTit">Titulo (*)</label>                         
+                        <input type="text" class="form-control" id="inputTit" required="" placeholder="Digite o titulo da noticia" style="border: 1px solid #343a40;"> 
+                    </div>
+                    <div class="col-sm-12"> 
+                        <label for="inputCat">Categoria (*)</label>                         
+                        <select type="text" class="form-control" id="inputCat" required placeholder="Escolha uma das seguintes categorias" style="border: 1px solid #343a40;">
+                            <option value="" disabled selected>Selecionar uma categoria</option>
+                            <option value="Saude">Saude</option>
+                            <option value="Gastronomia">Gastronomia</option>
+                            <option value="Esporte">Esporte</option>
+                            <option value="Design">Design</option>
+                            <option value="Tecnologia">Tecnologia</option>
+                            <option value="Educacional">Educacional</option>
+                            <option value="Politica">Politica</option>
+                            <option value="Business">Business</option>
+                            <option value="Ciencia">Ciencia</option>
+                            <option value="Mundo">Mundo</option>
+                            <option value="Estilo">Estilo</option>
+                            <option value="Viagem">Viagem</option>
+                        </select>                         
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4"> 
+                        <label for="inputData">Data (*)</label>                         
+                        <input type="date" class="form-control" id="inputData" placeholder="Digite a data da noticia" style="border: 1px solid #343a40;" disabled=""> 
+                    </div>                     
+                    <div class="col-sm-8"> 
+                        <label for="inputSub">Subtitulo (*)</label>                         
+                        <input type="text" class="form-control" id="inputSub" required="" placeholder="Digite o subtitulo da noticia" style="border: 1px solid #343a40;"> 
+                    </div>
+                </div>                 
+                <div class="form-group row"> 
+                    <div class="col-sm-5"> 
+                        <label for="inputAut">Autor (*)</label>                         
+                        <input type="text" class="form-control" id="inputAut" required placeholder="Digite o nome do autor da seguinte noticia" style="border: 1px solid #343a40;"> 
+                    </div>                     
+                    <div class="col-sm-7"> 
+                        <label for="inputImg">Imagem (*)</label>                         
+                        <input type="url" class="form-control" id="inputImg" placeholder="Digite o endereço URL da imagem da noticia" style="border: 1px solid #343a40;"> 
+                    </div>                     
+                    <div class="col-sm-12"> 
+                        <label for="inputTxt">Texto (*)</label>                         
+                        <textarea type="text" class="form-control" id="inputTxt" required placeholder="Digite aqui o corpo da noticia" style="border: 1px solid #343a40;"></textarea>
+                    </div>
+                </div>                 
+                <div class="form-group row"> 
+                    <div class="col-sm-4"> 
+                        <small>(*) Campos obrigatórios</small> 
+                    </div>                     
+                </div>                 
+                <div class="form-group row"> 
+                    <div class="col-sm-12" style="align-items: center; justify-content: center;"> 
+                        <input type="button" class="btn btn-success" id="btnInsert" value="Inserir"> 
+                        <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar"> 
+                        <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir"> 
+                        <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form" style="float: right;"> 
+                    </div>                     
+                </div>                 
+            </form>             
+            <div class="row"> 
+                <div class="col-sm-12"> 
+                    <table id="grid-contatos" class="table table-striped"> 
+                        <thead> 
+                            <tr style="background: #343a40; color: white;"> 
+                                <th scope="col">ID</th> 
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Categoria</th> 
+                                <th scope="col">Data</th> 
+                                <th scope="col">Subtitulo</th>
+                                <th scope="col">Autor</th>
+                                <th scope="col">Imagem</th> 
+                                <th scope="col">Texto</th> 
+                            </tr>                             
+                        </thead>                         
+                        <tbody id="table-contatos"> 
+                            <tr> 
+                                <td scope="row">1</td> 
+                                <td></td> 
+                                <td></td> 
+                                <td></td> 
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                             
+                        </tbody>                         
+                    </table>                     
+                </div>                 
+            </div>             
+        </div>         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>         
+        <script src="assets/js/db.js"></script>         
+        <script>
+        function exibeContatos() {
+            // Remove todas as linhas do corpo da tabela
+            $("#table-contatos").html("");
+
+            // Popula a tabela com os registros do banco de dados
+            for (i = 0; i < db.data.length; i++) {
+                let contato = db.data[i];
+                $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td><td>${contato.titulo}</td><td>${contato.categoria}</td><td>${contato.data}</td><td>${contato.subtitulo}</td><td>${contato.autor}</td><td>${contato.imagem}</td><td>${contato.texto}</td></tr>`);
+            }
+        }
+
+        function init() {
+            // Adiciona funções para tratar os eventos 
+            $("#btnInsert").click(function () {
+                // Verfica se o formulário está preenchido corretamente
+                if (!$('#form-contato')[0].checkValidity()) {
+                    displayMessage("Preencha o formulário corretamente.");
+                    return;
+                }
+
+                // Obtem os valores dos campos do formulário
+                let campoTitulo = $("#inputTit").val();
+				let campoCategoria = $("#inputCat").val();
+                let campoData = $("#inputData").val();
+                let campoSubtitulo = $('#inputSub').val();
+                let campoAutor = $('#inputAut').val();
+                let campoImagem = $('#inputImg').val();
+                let campoTexto = $('#inputTxt').val();
+                let contato = { titulo: campoTitulo, categoria: campoCategoria, data: campoData, subtitulo: campoSubtitulo, autor: campoAutor, imagem: campoImagem, texto: campoTexto };
+
+                insertContato(contato);
+
+                // Reexibe os contatos
+                exibeContatos();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Alterar
+            $("#btnUpdate").click(function () {
+                // Obtem os valores dos campos do formulário
+                let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione um contato para ser alterado.");
+                    return;
+                }
+                let campoTitulo = $("#inputTit").val();
+				let campoCategoria = $("#inputCat").val();
+                let campoData = $("#inputData").val();
+                let campoSubtitulo = $('#inputSub').val();
+                let campoAutor = $('#inputAut').val();
+                let campoImagem = $('#inputImg').val();
+                let campoTexto = $('#inputTxt').val();
+                let contato = { titulo: campoTitulo, categoria: campoCategoria, data: campoData, subtitulo: campoSubtitulo, autor: campoAutor, imagem: campoImagem, texto: campoTexto };
+
+                updateContato(parseInt(campoId), contato);
+
+                // Reexibe os contatos
+                exibeContatos();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Excluir
+            $("#btnDelete").click(function () {
+                let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione um contato a ser excluído.");
+                    return;
+                }
+                deleteContato(parseInt(campoId));
+
+                // Reexibe os contatos
+                exibeContatos();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Listar Contatos
+            $("#btnClear").click(function () {
+                $("#form-contato")[0].reset();
+            });
+
+            // Oculta a mensagem de aviso após alguns segundos
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+
+            // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+            $("#grid-contatos").on("click", "tr", function (e) {
+                let linhaContato = this;
+                $("#inputId").val(linhaContato.childNodes[0].firstChild.nodeValue);
+                $("#inputTit").val(linhaContato.childNodes[1].firstChild.nodeValue);
+				$("#inputCat").val(linhaContato.childNodes[2].firstChild.nodeValue);
+                $("#inputData").val(linhaContato.childNodes[3].firstChild.nodeValue);
+                $("#inputSub").val(linhaContato.childNodes[4].firstChild.nodeValue);
+                $("#inputAut").val(linhaContato.childNodes[5].firstChild.nodeValue);
+                $("#inputImg").val(linhaContato.childNodes[6].firstChild.nodeValue);
+                $("#inputTxt").val(linhaContato.childNodes[7].firstChild.nodeValue);
+            });
+
+            exibeContatos();
+            
+            $(document).ready( function() {
+    			var now = new Date();
+ 
+    			var day = ("0" + now.getDate()).slice(-2);
+        		var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    			var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+
+   				$('#inputData').val(today);
+			});
+       	 }
+    </script>         
+    </body>     
+</html>

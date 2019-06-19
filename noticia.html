@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Noticia - DIW NEWS</title>
+        <link rel="stylesheet" type="text/css" href="blog.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/1.8.0/jquery.textcomplete.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    </head>
+    <body style="width: 100%; margin: 0px;">
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+</div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-dark" onclick="window.location.href = 'index.html';" style="border-color: #0a6d85;">DIW
+                    NEWS</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="text-muted" href="#"> </a>
+                    <img src="http://skeavee.com/imagens/16.png" onclick="window.location.href = 'index.html';" style="width: 40px; height: 40px; margin-right: 35px;"/>
+                </div>
+            </div>
+        </header>
+        <div style="background: #343a40; color: white; height: 90px; display: flex; align-items: center; justify-content: center; width: 100%;" id="nottit">
+</div>
+        <div style="border-color: #1f1f1f;">
+            <div class="row mb-3" style="background: #343a40; height: 50px; border-top: 1px solid #ffffff;">
+                <div class="col-md-3 col-auto" style="border-top-color: #373738; border-bottom-color: #ececec; border-left-color: #ececec; border-right-color: #ececec; display: flex; align-items: center; justify-content: space-between;" id="notaut">
+</div>
+                <div class="col-md-7" style="border-left: 1px solid #ffffff;" id="notsub">
+</div>
+                <div class="col-md-2" style="border-left: 1px solid #ffffff; display: flex; align-items: center; justify-content: space-between;">
+                    <button id="botaocurtir" type="button" style="border-radius: 5px; border: 0px solid; background: white;">Gostei
+                        &nbsp
+                        <span href="#" id="result" style="background: #373738; color: white; border-radius: 5px;"></span>
+                    </button>
+                    <img src="http://skeavee.com/imagens/ic-3.png" onclick="window.location.href = '#comments-container';" style="border-top-color: #ececec; border-bottom-color: #ececec; border-left-color: #ececec; border-right-color: #130a0a; width: 35px; height: 35px; margin-right: 15px;">
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: -15px;">
+            <div class="row mb-3" style="border-color: #373738;">
+                <div class="col-md-5 col-auto" style="border-top-color: #373738; border-bottom-color: #ececec; border-left-color: #ececec; border-right-color: #ececec; display: flex; align-items: center; justify-content: space-between;" id="notimg">
+</div>
+                <div class="col-md-7" style="border-left: 1px solid #ffffff;" id="nottxt">
+</div>
+            </div>
+        </div>
+        <div style="width: 100%; background: #343a40; display: flex; align-items: center; justify-content: center; height: 70px; color: white;">
+            <h4>Comentarios</h4>
+        </div>
+        <div>
+            <div class="row mb-2" style="border-bottom: 1px solid #373738;">
+                <div class="col-md-8 col-auto" style="border-top-color: #373738; border-bottom-color: #ececec; border-left-color: #ececec; border-right-color: #ececec; display: flex; align-items: flex-start; justify-content: flex-start; color: black;">
+                    <div id="area-comentario" style="margin-top: 25px; width: 100%;"></div>
+                </div>
+                <div class="col-md-4" style="border-left: 1px solid #373738;padding-bottom: 15px;">
+                    <div id="comentario" style="width: 80%; margin-left: auto; margin-right: auto; margin-top: 25px; margin-bottom: 15px">
+                        <input type="text" id="nome" style="width: 100%; margin-bottom: 20px; border: 2px solid #343a40;" placeholder="Digite o seu nome (*)" required>
+                        <textarea id="comentarei" style="width: 100%; border: 2px solid #343a40;" placeholder="Digite o seu comentario (*)" required></textarea>
+                        <button class="botao" id="comentei" style="text-align: center; float: right; margin-top: 15px;">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/db.js"></script>
+        <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        localStorage.setItem('id', id);
+
+        var nots = '';
+        nots += `<h1 style="font-size: 40px; font-family: Playfair Display; border-color: #1f1f1f;">${db.data[id].titulo}</h1>`;
+        document.getElementById('nottit').innerHTML = nots;
+        var nots = '';
+        nots += `<h1 style="font-size: 40px; font-family: Playfair Display; border-color: #1f1f1f;">${db.data[id].titulo}</h1>`;
+        document.getElementById('nottit').innerHTML = nots;
+        var nots = '';
+        nots += `${db.data[id].like}`;
+        document.getElementById('result').innerHTML = nots;
+        var nots = '';
+        nots += `<h6 style="margin-top: 8px; margin-left: 15px; color:white"><img style="height: 35px" src="http://skeavee.com/imagens/ic-6.png"> ${db.data[id].data} &nbsp; &nbsp; &nbsp; <img style="height: 35px" src="http://skeavee.com/imagens/ic-5.png"> ${db.data[id].autor}</h6>`;
+        document.getElementById('notaut').innerHTML = nots;
+        var nots = '';
+        nots += `<p style="margin-top: 8px; color: white">${db.data[id].subtitulo}</p>`;
+        document.getElementById('notsub').innerHTML = nots;
+        var nots = '';
+        nots += `<img src="${db.data[id].imagem}" style="width: 100%;"/>`;
+        document.getElementById('notimg').innerHTML = nots;
+        var nots = '';
+        nots += `<p style="margin-top: 15px;">${db.data[id].texto}</p>`;
+        document.getElementById('nottxt').innerHTML = nots;
+		
+		var tuts = '';
+        for (i = 0; i < db.data[id].comentario.length; i++) {
+            tuts += `<div style="border: 2px solid #343a40;margin-bottom: 15px;margin-left: 15px;"><div style="width: 100%; background:#343a40; height: 30px"><img src="http://skeavee.com/imagens/ic-7.png" style="height: 25px; margin-left: 10px"><p style="color: white; display: inline;
+    margin-left: 15px;">Nome:&nbsp;&nbsp;${db.data[id].comentario[i].nome}</p></div>
+                     <p style="margin-top: 15px;margin-left: 15px; color:#343a40">${db.data[id].comentario[i].conteudo}</p></div>`;
+            document.getElementById('area-comentario').innerHTML = tuts;
+        }
+
+
+        function comentario() {
+            $('#comentei').on('click', function () {
+                let novoComentario = {
+                    conteudo: $('#comentarei').val(),
+                    nome: $('#nome').val(),
+                };
+
+                let db = JSON.parse(localStorage.getItem('dbRicardoChristovao'));
+                let id = localStorage.getItem('id')
+                if (!novoComentario.conteudo || !novoComentario.nome) {
+                    alert('Campo em branco');
+                } else {
+                    JSON.stringify(novoComentario);
+                    db.data[id].comentario.push(novoComentario);
+                    localStorage.setItem('dbRicardoChristovao', JSON.stringify(db));
+                    $('#comentarei').val('');
+                    $('#nome').val('');
+                    location.reload();
+                }
+            })
+        }       
+
+        $('#botaocurtir').on('click', function(event) {
+            event.preventDefault();          
+            db = JSON.parse(localStorage.getItem('dbRicardoChristovao'));
+            let id = new URLSearchParams(location.search).get('id');
+            db.data[id].like++;
+            localStorage.setItem('dbRicardoChristovao', JSON.stringify(db));
+            location.reload();
+        });
+
+        comentario();
+
+    </script>
+    </body>
+</head>

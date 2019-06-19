@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+        <title>Imprimir - DIW NEWS</title>         
+        <link href="blog.css" rel="stylesheet" type="text/css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet" type="text/css">
+    </head>     
+    <body> 
+        <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+</div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-dark" onclick="window.location.href = 'index.html';" style="border-color: #0a6d85;">DIW NEWS</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <a class="text-muted" href="#"> </a>
+                    <img src="http://skeavee.com/imagens/16.png" onclick="window.location.href = 'index.html';" style="width: 40px; height: 40px; margin-right: 35px;"/>
+                </div>
+            </div>
+        </header>
+        <div style="background: #343a40; color: white; height: 90px; display: flex; align-items: center; justify-content: center;">
+            <h1 style="font-size: 40px; font-family: Playfair Display; border-color: #1f1f1f;">Relatorio de Noticias</h1>
+        </div>         
+        <div id="tela" style="margin-top: 25px; margin-left: 20px;"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>         
+        <script src="assets/js/db.js"></script>         
+        <script>
+        let texto  = '';
+
+        db_o = db.data.sort (function (a, b) {
+            return b.data.localeCompare (a.data);
+        });
+
+        for (i=0; i<db_o.length; i++) {
+            texto += `<h4 style="font-size: 20px; font-family: Playfair Display;"> ${db_o[i].titulo} - ${db_o[i].data}</h4> <br>`
+        }
+        $('#tela').html (texto);        
+    </script>         
+    </body>     
+</html>
